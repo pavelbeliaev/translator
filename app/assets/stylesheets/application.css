@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.topnav {
+  overflow: hidden;
+}
+
+.topnav-right {
+  float: right;
+}

@@ -1,1 +1,16 @@
-.p Hello
+= form_tag root_path do
+  .container.translator
+    .left
+      = select_tag 'translation[from]', options_lang_from(@from), class: 'from'
+      = text_area_tag 'translation[text]', @text, class: 'input', id: 'input'
+      .controls
+        = button_tag 'Clear', class: 'clear', onclick: "clearInput();"
+        = submit_tag 'Translate', class: 'submit'
+    .right
+      = select_tag 'translation[to]', options_lang_to(@to), class: 'to'
+      .output
+        = @result
+:javascript
+  function clearInput(){
+     document.getElementById("input").value = "";
+  };

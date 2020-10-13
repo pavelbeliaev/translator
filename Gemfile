@@ -29,6 +29,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'haml', '~> 5.2'
+gem 'faraday', '~> 1.0', '>= 1.0.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +55,9 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
+  gem 'vcr', '~> 6.0'
+  gem 'webmock', '~> 3.9', '>= 3.9.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

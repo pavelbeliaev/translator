@@ -12,3 +12,16 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :minitest
+    with.library :rails
+  end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = File.expand_path('../vcr_cassettes', __FILE__)
+  config.hook_into :webmock
+  config.ignore_localhost = true
+end

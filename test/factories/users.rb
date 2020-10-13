@@ -4,6 +4,7 @@ FactoryBot.define do
     password              { 'password' }
     password_confirmation { 'password' }
     confirmed_at          { Time.now }
+    account
 
     trait :bilbo do
       email                 { 'bilbo@shire.com' }

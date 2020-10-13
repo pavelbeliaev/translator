@@ -43,4 +43,13 @@ class AuthTest < ApplicationSystemTestCase
 
     assert_selector 'p.notice', text: 'Signed in successfully.'
   end
+
+  test 'sign out' do
+    sign_in create(:user)
+    visit root_path
+
+    click_on 'Sign Out'
+
+    assert_selector 'p.alert', text: 'You need to sign in or sign up before continuing.'
+  end
 end

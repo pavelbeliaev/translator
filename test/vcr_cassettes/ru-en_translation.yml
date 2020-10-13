@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=ru&to=en
+    body:
+      encoding: UTF-8
+      string: '[{"Text":"Привет, как дела?"}]'
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - 32e6bf9747bf434e854e33a68b404639
+      Ocp-Apim-Subscription-Region:
+      - westeurope
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Mt-System:
+      - Microsoft
+      X-Requestid:
+      - TRAN.SN3P.33F0.1013T1622.54C1303
+      Access-Control-Expose-Headers:
+      - X-Metered-Usage
+      - X-RequestId
+      X-Content-Type-Options:
+      - nosniff
+      X-Metered-Usage:
+      - '17'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Tue, 13 Oct 2020 16:22:10 GMT
+      Content-Length:
+      - '57'
+    body:
+      encoding: UTF-8
+      string: '[{"translations":[{"text":"Hi how are you?","to":"en"}]}]'
+  recorded_at: Tue, 13 Oct 2020 16:22:10 GMT
+recorded_with: VCR 6.0.0

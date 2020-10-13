@@ -8,7 +8,9 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   %body
-    = link_to 'Sign Out', destroy_user_session_path, method: :delete
+    .topnav
+      .topnav-right
+        = link_to 'Sign Out', destroy_user_session_path, method: :delete
     %p.notice= notice
     %p.alert= alert
     = yield
