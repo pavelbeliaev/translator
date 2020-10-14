@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/df6e14c4-7565-4987-89ed-f0bed39d291d/v3/translate?version=2018-05-01
+    body:
+      encoding: UTF-8
+      string: '{"text":["Всем привет!"],"model_id":"ru-en"}'
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Basic YXBpa2V5OmF6X0ZQQ1oxOVZQTFV1WkFBemZCdEVEcVZIZ1F6bVpBTkZlSE1FRmVTa0xO
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '115'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - default-src 'none'
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Language:
+      - en-US
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains;
+      X-Global-Transaction-Id:
+      - b5eb54aec3ad3ae15e5449d6f22b2903
+      X-Dp-Watson-Tran-Id:
+      - b5eb54aec3ad3ae15e5449d6f22b2903
+      X-Edgeconnect-Midmile-Rtt:
+      - '117'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '557'
+      Date:
+      - Wed, 14 Oct 2020 13:00:01 GMT
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "translations" : [ {
+            "translation" : "Hi, everybody!"
+          } ],
+          "word_count" : 5,
+          "character_count" : 12
+        }
+  recorded_at: Wed, 14 Oct 2020 13:00:01 GMT
+recorded_with: VCR 6.0.0

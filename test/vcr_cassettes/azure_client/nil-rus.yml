@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=rus
+    body:
+      encoding: UTF-8
+      string: '[{"Text":"Hello world!"}]'
+    headers:
+      Ocp-Apim-Subscription-Key:
+      - 32e6bf9747bf434e854e33a68b404639
+      Ocp-Apim-Subscription-Region:
+      - westeurope
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      X-Requestid:
+      - TRAN.SN3P.33ED.1014T1224.1159D85
+      Access-Control-Expose-Headers:
+      - X-RequestId
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Date:
+      - Wed, 14 Oct 2020 12:24:17 GMT
+      Content-Length:
+      - '71'
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":400036,"message":"The target language is not valid."}}'
+  recorded_at: Wed, 14 Oct 2020 12:24:18 GMT
+recorded_with: VCR 6.0.0

@@ -4,7 +4,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto;
   grid-column-gap: 10px;
   justify-content: left;
 }
@@ -17,15 +17,19 @@
   grid-column-end: 2;
 }
 .translator {
+  .vendors {
+    float:right;
+    padding-bottom: 10px;
+  }
   .from, .to {
     display:block;
     margin-bottom:5px;
   }
-  .input {
+  #input {
     width:415px;
     height:150px;
   }
-  .output {
+  #output {
     border: 1px solid black;
     width:415px;
     height:150px;

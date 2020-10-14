@@ -12,7 +12,7 @@ class AzureClient
   def translate(text, from, to)
     payload = [{ 'Text' => text.squish }].to_json
 
-    case call(payload, from, to)
+    case call_api(payload, from, to)
     #[{"detectedLanguage"=>{"language"=>"en", "score"=>1.0}, "translations"=>[{"text"=>"Привет", "to"=>"ru"}]}]
     in [{detectedLanguage: {language: lang}, translations: [{text: result}]}]
       result # right now this branch is redundant, we'll utilize it later
@@ -27,7 +27,7 @@ class AzureClient
 
   private
 
-  def call(payload, from, to)
+  def call_api(payload, from, to)
     params = { 'api-version': '3.0', from: from, to: to || @account.lang }.compact
 
     resp = Faraday.new(

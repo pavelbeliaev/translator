@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=ru&to=en
+    uri: https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=ru
     body:
       encoding: UTF-8
-      string: '[{"Text":"Привет, как дела?"}]'
+      string: '[{"Text":"Hello world!"}]'
     headers:
       Ocp-Apim-Subscription-Key:
       - 32e6bf9747bf434e854e33a68b404639
@@ -29,22 +29,23 @@ http_interactions:
       X-Mt-System:
       - Microsoft
       X-Requestid:
-      - TRAN.SN3P.33F0.1013T1622.54C1303
+      - TRAN.SN3P.33EF.1014T1222.62C6C0E
       Access-Control-Expose-Headers:
       - X-Metered-Usage
       - X-RequestId
       X-Content-Type-Options:
       - nosniff
       X-Metered-Usage:
-      - '17'
+      - '12'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Date:
-      - Tue, 13 Oct 2020 16:22:10 GMT
+      - Wed, 14 Oct 2020 12:22:44 GMT
       Content-Length:
-      - '57'
+      - '113'
     body:
-      encoding: UTF-8
-      string: '[{"translations":[{"text":"Hi how are you?","to":"en"}]}]'
-  recorded_at: Tue, 13 Oct 2020 16:22:10 GMT
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3siZGV0ZWN0ZWRMYW5ndWFnZSI6eyJsYW5ndWFnZSI6ImVuIiwic2NvcmUiOjEuMH0sInRyYW5zbGF0aW9ucyI6W3sidGV4dCI6ItCS0YHQtdC8INC/0YDQuNCy0LXRgiEiLCJ0byI6InJ1In1dfV0=
+  recorded_at: Wed, 14 Oct 2020 12:22:45 GMT
 recorded_with: VCR 6.0.0

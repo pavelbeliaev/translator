@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/df6e14c4-7565-4987-89ed-f0bed39d291d/v3/translate?version=2018-05-01
+    body:
+      encoding: UTF-8
+      string: '{"text":["Hello world!"],"model_id":"en-rus"}'
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - Faraday v1.0.1
+      Authorization:
+      - Basic YXBpa2V5OmF6X0ZQQ1oxOVZQTFV1WkFBemZCdEVEcVZIZ1F6bVpBTkZlSE1FRmVTa0xO
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '50'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - default-src 'none'
+      Cache-Control:
+      - no-cache, no-store
+      Pragma:
+      - no-cache
+      Content-Language:
+      - en-US
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains;
+      X-Global-Transaction-Id:
+      - 0af06511c37ba15be9e0abb7625db432
+      X-Dp-Watson-Tran-Id:
+      - 0af06511c37ba15be9e0abb7625db432
+      X-Edgeconnect-Midmile-Rtt:
+      - '99'
+      X-Edgeconnect-Origin-Mex-Latency:
+      - '163'
+      Date:
+      - Wed, 14 Oct 2020 12:30:02 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "code" : 404,
+          "error" : "Model not found."
+        }
+  recorded_at: Wed, 14 Oct 2020 12:30:02 GMT
+recorded_with: VCR 6.0.0
