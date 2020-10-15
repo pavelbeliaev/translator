@@ -1,0 +1,19 @@
+.container
+  .left
+    %h2 Set your default translation model
+  .right
+  .left
+    = render partial: 'shared/errors', locals: { obj: current_account }
+= form_for current_account, url: account_path, method: :put do |f|
+  .container.settings
+    .left
+      = f.label :from_lang, 'From:'
+    .right
+      = f.select :from_lang, options_for_select(LANGUAGES, current_account.from_lang)
+    .left
+      = f.label :from_lang, 'To:'
+    .right
+      = f.select :to_lang, options_for_select(LANGUAGES, current_account.to_lang)
+    .left
+      .controls
+        = submit_tag 'Update', class: 'submit'

@@ -4,10 +4,10 @@
     .right
       = render 'vendors'
     .left
-      = select_tag 'translation[from]', options_lang_from(@from), class: 'from'
+      = select_tag 'translation[from]', options_for_from_lang, class: 'from'
       = text_area_tag 'translation[text]', @text, id: 'input'
     .right
-      = select_tag 'translation[to]', options_lang_to(@to), class: 'to'
+      = select_tag 'translation[to]', options_for_to_lang, class: 'to'
       #output
         = @result
     .left

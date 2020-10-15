@@ -3,7 +3,7 @@ require 'azure_client'
 
 class AzureClientTest < ActiveSupport::TestCase
   def setup
-    account = create(:account, lang: 'es')
+    account = create(:account, to_lang: 'es')
     @translator = AzureClient.new(account)
   end
 

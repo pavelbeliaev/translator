@@ -9,7 +9,9 @@
     = javascript_pack_tag 'application'
   %body
     .topnav
+      = link_to 'Home', root_path
       .topnav-right
+        = link_to 'Settings', account_path
         = link_to 'Sign Out', destroy_user_session_path, method: :delete
     %p.notice= notice
     %p.alert= alert

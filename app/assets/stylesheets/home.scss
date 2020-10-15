@@ -2,20 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.container {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-column-gap: 10px;
-  justify-content: left;
-}
-.left {
-  grid-column-start: 1;
-  grid-column-end: 1;
-}
-.right {
-  grid-column-start: 2;
-  grid-column-end: 2;
-}
 .translator {
   .vendors {
     float:right;

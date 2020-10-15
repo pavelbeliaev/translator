@@ -1,5 +1,5 @@
 .vendors
-  - current = @vendor || DEFAULT_VENDOR
+  - current = session['vendor'] || DEFAULT_VENDOR
   - VENDORS.each do |v|
     = radio_button_tag 'translation[vendor]', v, v == current
     = label_tag "translation_vendor_#{v}", v.capitalize

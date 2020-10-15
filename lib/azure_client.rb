@@ -28,7 +28,7 @@ class AzureClient
   private
 
   def call_api(payload, from, to)
-    params = { 'api-version': '3.0', from: from, to: to || @account.lang }.compact
+    params = { 'api-version': '3.0', from: from, to: to || @account.to_lang }.compact
 
     resp = Faraday.new(
       url: ENDPOINT,

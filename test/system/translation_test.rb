@@ -58,6 +58,43 @@ class TranslationTest < ApplicationSystemTestCase
     end
   end
 
+  test 'remembers the selected translation model (cache it in the session)' do
+    VCR.use_cassette('azure_client/ru-en') do
+      assert has_select?('translation_from', selected: 'en')
+      assert has_select?('translation_to', selected: 'ru')
+
+      select('ru', from: 'translation_from')
+      select('en', from: 'translation_to')
+      fill_in 'input', with: 'Всем привет!'
+
+      click_on 'Translate'
+
+      assert_selector '#output', text: 'Hello world!'
+
+      visit root_path
+
+      assert has_select?('translation_from', selected: 'ru')
+      assert has_select?('translation_to', selected: 'en')
+    end
+  end
+
+  test 'remembers the selected vendor' do
+    VCR.use_cassette('ibm_client/en-ru') do
+      assert_selector '#translation_vendor_azure[checked=checked]'
+
+      choose 'Ibm'
+      fill_in 'input', with: 'Hello world!'
+
+      click_on 'Translate'
+
+      assert_selector '#output', text: 'Привет, мир!'
+
+      visit root_path
+
+      assert_selector '#translation_vendor_ibm[checked=checked]'
+    end
+  end
+
   test 'clear button' do
     fill_in 'input', with: 'Hello'
     assert_equal 'Hello', find('#input').value

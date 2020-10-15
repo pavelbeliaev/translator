@@ -9,7 +9,8 @@ class IBMClient
   end
 
   def translate(text, from, to)
-    to = to || @account.lang
+    from = from || @account.from_lang
+    to   = to   || @account.to_lang
     payload = { text: [text.squish], model_id: "#{from}-#{to}" }.to_json
 
     case call_api(payload)

@@ -1,5 +1,6 @@
 LANGUAGES = [
   'en'.freeze,
+  'es'.freeze,
   'ru'.freeze
 ].freeze
 

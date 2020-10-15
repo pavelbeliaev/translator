@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-column-gap: 10px;
+  justify-content: left;
+  margin-left:20px;
+}
+.left {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+.right {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}

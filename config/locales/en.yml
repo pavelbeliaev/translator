@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      account:
+        from_lang: 'From'
+        to_lang: 'To'
