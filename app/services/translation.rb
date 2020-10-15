@@ -4,9 +4,6 @@ require 'ibm_client'
 class Translation
   class UnknownVendor < StandardError; end
 
-  VENDORS = ['azure', 'ibm'].freeze
-  DEFAULT_VENDOR = 'azure'.freeze
-
   def initialize(account)
     @account = account
   end
