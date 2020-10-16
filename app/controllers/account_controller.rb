@@ -1,6 +1,5 @@
 class AccountController < ApplicationController
-  def index
-  end
+  def index; end
 
   def update
     clear_session if current_account.update(account_params)

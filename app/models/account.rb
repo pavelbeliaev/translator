@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-  has_one :user
+  has_one :user, dependent: :destroy
   validates :to_lang, :from_lang, presence: true, inclusion: LANGUAGES
   validate :translation_model
 

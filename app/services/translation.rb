@@ -27,11 +27,11 @@ class Translation
     return if vendor == @current_vendor
 
     @client = case vendor
-    when 'azure'
-      AzureClient.new(@account)
-    when 'ibm'
-      IBMClient.new(@account)
-    end
+              when 'azure'
+                AzureClient.new(@account)
+              when 'ibm'
+                IBMClient.new(@account)
+              end
 
     @current_vendor = vendor
   end

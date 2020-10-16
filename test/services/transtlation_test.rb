@@ -8,7 +8,7 @@ class TranslationTest < ActiveSupport::TestCase
 
   test '#translate azure' do
     mock = Minitest::Mock.new
-    mock.expect :translate, true, ['text', 'en', 'ru']
+    mock.expect :translate, true, %w[text en ru]
 
     AzureClient.stub :new, mock do
       @translator.translate('azure', 'text', 'en', 'ru')
@@ -19,7 +19,7 @@ class TranslationTest < ActiveSupport::TestCase
 
   test '#translate ibm' do
     mock = Minitest::Mock.new
-    mock.expect :translate, true, ['text', 'en', 'ru']
+    mock.expect :translate, true, %w[text en ru]
 
     IBMClient.stub :new, mock do
       @translator.translate('ibm', 'text', 'en', 'ru')

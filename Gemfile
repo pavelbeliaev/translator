@@ -31,7 +31,6 @@ gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'haml', '~> 5.2'
 gem 'faraday', '~> 1.0', '>= 1.0.1'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -47,6 +46,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener', '~> 1.7'
   gem 'haml-rails', '~> 2.0', '>= 2.0.1'
+  gem 'rubocop-rails', '~> 2.8', '>= 2.8.1', require: false
 end
 
 group :test do

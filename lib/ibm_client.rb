@@ -9,17 +9,15 @@ class IBMClient
   end
 
   def translate(text, from, to)
-    from = from || @account.from_lang
-    to   = to   || @account.to_lang
+    from ||= @account.from_lang
+    to   ||= @account.to_lang
     payload = { text: [text.squish], model_id: "#{from}-#{to}" }.to_json
 
     case call_api(payload)
-    #{"translations": [{"translation": "Hola, mundo."}]}
     in {translations: [{translation: result}]}
       result
-    #{"code" : 404, "error" : "Model not found."}
     in {code: code, error: message}
-      raise APIError.new(message)
+      raise APIError, message
     end
   end
 
@@ -34,7 +32,7 @@ class IBMClient
     conn.basic_auth('apikey', Rails.application.credentials.ibm_key)
     resp = conn.post('v3/translate', payload)
 
-    raise APIError.new(resp.body) unless resp.success?
+    raise(APIError, resp.body) unless resp.success?
 
     JSON.parse(resp.body, symbolize_names: true)
   end
@@ -44,6 +42,6 @@ class IBMClient
   end
 
   def headers
-    { 'Content-Type':  'application/json; charset=UTF-8' }
+    { 'Content-Type': 'application/json; charset=UTF-8' }
   end
 end

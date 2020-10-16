@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   def create_defaults
     return if account.present?
+
     build_account
   end
 end

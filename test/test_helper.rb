@@ -24,7 +24,7 @@ end
 driver_hosts = Webdrivers::Common.subclasses.map { |driver| URI(driver.base_url).host }
 
 VCR.configure do |config|
-  config.cassette_library_dir = File.expand_path('../vcr_cassettes', __FILE__)
+  config.cassette_library_dir = File.expand_path('vcr_cassettes', __dir__)
   config.hook_into :webmock
   config.ignore_localhost = true
   config.ignore_hosts(*driver_hosts)
