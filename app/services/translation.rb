@@ -10,9 +10,10 @@ class Translation
 
   def translate(vendor, text, from, to)
     validate_vendor(vendor)
-    init_client_for(vendor)
 
-    @client.translate(text, from, to)
+    Rails.cache.fetch([vendor, text, from, to]) do
+      client_for(vendor).translate(text, from, to)
+    end
   end
 
   private
@@ -23,16 +24,12 @@ class Translation
     raise UnknownVendor
   end
 
-  def init_client_for(vendor)
-    return if vendor == @current_vendor
-
-    @client = case vendor
-              when 'azure'
-                AzureClient.new(@account)
-              when 'ibm'
-                IBMClient.new(@account)
-              end
-
-    @current_vendor = vendor
+  def client_for(vendor)
+    case vendor
+    when 'azure'
+      AzureClient.new(@account)
+    when 'ibm'
+      IBMClient.new(@account)
+    end
   end
 end

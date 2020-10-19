@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     @text  = translation_params[:text]
 
     @result = translator.translate(vendor, @text, from, to)
+
     update_session(vendor, from, to)
   end
 

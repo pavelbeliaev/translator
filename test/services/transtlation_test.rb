@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class TranslationTest < ActiveSupport::TestCase
+  include CachingHelper
   def setup
     account = create(:account)
     @translator = Translation.new(account)
@@ -34,15 +35,16 @@ class TranslationTest < ActiveSupport::TestCase
     end
   end
 
-  test '#init_vendor cache the vendor' do
-    @translator.instance_variable_set('@current_vendor', 'azure')
+  test '#translate caching' do
+    mock = Minitest::Mock.new
+    mock.expect :translate, 'привет', %w[hello en ru]
 
-    assert_nil @translator.send(:init_client_for, 'azure')
-  end
-
-  test '#init_vendor initialize a new vendor' do
-    @translator.instance_variable_set('@current_vendor', 'azure')
-
-    assert_equal @translator.send(:init_client_for, 'ibm'), 'ibm'
+    IBMClient.stub :new, mock do
+      assert_equal('привет', @translator.translate('ibm', 'hello', 'en', 'ru'))
+      assert_raise MockExpectationError do
+        assert_equal('привет', @translator.translate('ibm', 'hello', 'en', 'ru'))
+        mock.verify
+      end
+    end
   end
 end
